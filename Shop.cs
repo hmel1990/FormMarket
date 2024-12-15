@@ -10,11 +10,12 @@ namespace Market_try
 
     public class Shop
     {
+        string file_path = @"C:\Users\User\Desktop\It_Step\.NET\Project\FormMarket\market_goods.txt";
         public List<Goods> goods = new List<Goods>();
         public void goodsToShop()
         {
             // Считываем все строки из файла
-            string[] lines = File.ReadAllLines("market_goods.txt");
+            string[] lines = File.ReadAllLines(file_path);
 
             // Проверяем, есть ли строки в файле
             if (lines.Length == 0)

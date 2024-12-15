@@ -11,6 +11,7 @@ namespace Market_try
         //private int id = 0;
         //private string login;
         //private string password;
+        string target_file = @"C:\Users\User\Desktop\It_Step\.NET\Project\FormMarket\loginPassword.txt";
 
         internal LoginPassword logPas = new LoginPassword();
 
@@ -35,7 +36,7 @@ namespace Market_try
             logPas.id = 0;
 
             // Считываем все строки из файла
-            string[] lines = File.ReadAllLines("loginPassword.txt");
+            string[] lines = File.ReadAllLines(target_file);
 
             // Проверяем, есть ли строки в файле
             if (lines.Length == 0)
@@ -106,7 +107,7 @@ namespace Market_try
                 data[(data.Count() - 1)].id = data.Count();            //заполняем новый объект в массиве
                 data[(data.Count() - 1)].login = logPas.login;         //заполняем новый объект в массиве
                 data[(data.Count() - 1)].password = logPas.password;   //заполняем новый объект в массиве
-                File.AppendAllText("loginPassword.txt", logPas.id + "\t" + logPas.login + "\t" + logPas.password + "\n"); //записываем строку с новым пользователев в тхт файл
+                File.AppendAllText(target_file, logPas.id + "\t" + logPas.login + "\t" + logPas.password + "\n"); //записываем строку с новым пользователев в тхт файл
                 return true;
             }
             else {return false; }
